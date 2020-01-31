@@ -1,4 +1,4 @@
-# SimpleFuzzyMatchR
+# Simple Fuzzy Match R
 Simple vectorised Fuzzy Matching function in R based on Levenshtein distance
 
 ## Problem
