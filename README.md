@@ -22,7 +22,7 @@ But someone is likely to like strict matching: "apple", "apples", ~~"aple", "app
 4. **f(x, y)** should return `NA` if Levenshtein distance of matching is more than some max value  
 
 ## Solution
-Simple function based on `adist()`:
+Simple function `get_match()` based on `adist()`:
 ```{r}
 library(purrr)
 
