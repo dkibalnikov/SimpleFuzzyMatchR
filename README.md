@@ -6,9 +6,9 @@ Simple vectorised Fuzzy Matching function in R based on Levenshtein distance
 
 Base R function `agrep()` has several limitation in case vectorize matching:
 
-1. returns all matches:  
-1.1 either with number of match (1)  
-1.2 either the match case (2)
+1. Returns all matches:  
+1.1 Either with number of match (1)  
+1.2 Either the match case (2)
 
 ``` r
 fruits <- c("apple", "apples", "aple", "melone", "applejuice", "peanapple", "pear")
@@ -20,7 +20,7 @@ agrep("apple", fruits, value = TRUE) #(2)
 #>[1] "apple"      "apples"     "aple"       "applejuice" "peanapple" 
 ```
 
-2. returns *"matches substrings of each element of x"* (see documentation `agrep()`).  
+2. Returns *"matches substrings of each element of x"* (see documentation `agrep()`).  
 But someone is likely to like strict matching: "apple", "apples", ~~"aple", "applejuice", "peanapple"~~ 
 3. Enythere someone also likes vectorize form where in **f(x, y)**: x, y are vectors for matching and **f(x, y)** returns vector of best matches from y in sequance of x
 4. **f(x, y)** should return `NA` if Levenshtein distance of matching is more than some max value  
