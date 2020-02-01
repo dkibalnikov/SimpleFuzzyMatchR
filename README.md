@@ -11,12 +11,12 @@ Base R function `agrep()` has several limitation in case vectorize matching:
 1.2 either the match case (2)
 
 ``` r
-fruits <- c("apple","apples", "aple", "melone", "applejuice", "peanapple", "pear")
+fruits <- c("apple", "apples", "aple", "melone", "applejuice", "peanapple", "pear")
 
 agrep("apple", fruits) #(1)
-agrep("apple", fruits, value = TRUE) #(2)
-
 #>[1] 1 2 3 5 6
+
+agrep("apple", fruits, value = TRUE) #(2)
 #>[1] "apple"      "apples"     "aple"       "applejuice" "peanapple" 
 ```
 
