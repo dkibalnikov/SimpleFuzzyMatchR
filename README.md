@@ -1,11 +1,3 @@
----
-output: github_document
----
-
-```{r, echo = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
-set.seed(1014)
-```
 
 # Simple Fuzzy Match R
 Simple vectorised Fuzzy Matching function in R based on Levenshtein distance
@@ -18,7 +10,7 @@ Base R function `agrep()` has several limitation in case vectorize matching:
 1.1 either with number of match (1)  
 1.2 either the match case (2)
 
-```{r eval = TRUE}
+``` r
 fruits <- c("apple","apples", "aple", "melone", "applejuice", "peanapple", "pear")
 
 agrep("apple", fruits) #(1)
@@ -32,7 +24,7 @@ But someone is likely to like strict matching: "apple", "apples", ~~"aple", "app
 
 ## Solution
 Simple function `get_match()` based on `adist()`:
-```{r}
+``` r
 library(purrr)
 
 get_match <- function(x, y, max = 3, cost = 1) {
