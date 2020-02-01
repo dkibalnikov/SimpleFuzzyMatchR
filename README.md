@@ -15,6 +15,9 @@ fruits <- c("apple","apples", "aple", "melone", "applejuice", "peanapple", "pear
 
 agrep("apple", fruits) #(1)
 agrep("apple", fruits, value = TRUE) #(2)
+
+#>[1] 1 2 3 5 6
+#>[1] "apple"      "apples"     "aple"       "applejuice" "peanapple" 
 ```
 
 2. returns *"matches substrings of each element of x"* (see documentation `agrep()`).  
@@ -25,7 +28,7 @@ But someone is likely to like strict matching: "apple", "apples", ~~"aple", "app
 ## Solution
 Simple function `get_match()` based on `adist()`:
 ``` r
-library(purrr)
+library("purrr")
 
 get_match <- function(x, y, max = 3, cost = 1) {
   dist_mtrx <- adist(x, y, partial = FALSE, costs = cost) 
@@ -45,5 +48,7 @@ get_match <- function(x, y, max = 3, cost = 1) {
 #test result
 fruits2 <- c("pears","apples", "melone", "per", "apple", "orange")
 get_match(fruits2, fruits)
+
+#>[1] "pear"   "apples" "melone" "pear"   "apple"  NA  
 ```
 © 2020 GitHub, Inc.
