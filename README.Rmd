@@ -9,7 +9,7 @@ Base R function `agrep()` has several limitation in case vectorize matching:
 1.1 either with number of match (1)  
 1.2 either the match case (2)
 
-```{r}
+```{r eval = TRUE}
 fruits <- c("apple","apples", "aple", "melone", "applejuice", "peanapple", "pear")
 
 agrep("apple", fruits) #(1)
