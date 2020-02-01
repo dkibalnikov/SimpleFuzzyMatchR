@@ -1,3 +1,12 @@
+---
+output: github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+set.seed(1014)
+```
+
 # Simple Fuzzy Match R
 Simple vectorised Fuzzy Matching function in R based on Levenshtein distance
 
