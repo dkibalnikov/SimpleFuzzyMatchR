@@ -47,7 +47,7 @@ get_match <- function(x, y, max = 3, cost = 1) {
 
 #test result
 fruits2 <- c("pears","apples", "melone", "per", "apple", "orange")
-get_match(fruits2, fruits)
+get_match(fruits2, fruit)
 
 #>[1] "pear"   "apples" "melone" "pear"   "apple"  NA  
 ```
