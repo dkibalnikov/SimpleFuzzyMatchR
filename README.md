@@ -46,9 +46,39 @@ get_match <- function(x, y, max = 3, cost = 1) {
 }
 
 #test result
+fruits1 <- stringr::fruit
 fruits2 <- c("pears","apples", "melone", "per", "apple", "orange")
-get_match(fruits2, fruit)
+get_match(fruits2, fruits1)
 
-#>[1] "pear"   "apples" "melone" "pear"   "apple"  NA  
+#>[1] "pear"   "apple"  NA       "pear"   "apple"  "orange"  
 ```
+
+Same result but a little bit faster using only base R
+``` r
+get_match <- function(x, y, max = 3, cost = 1) {
+  dist_mtrx <- adist(x, y, partial = FALSE, costs = cost) 
+  dimnames(dist_mtrx) <- list(x, y)
+  
+  get_best <- function(n, dist_mtrx, max){
+    min_dist <- min(dist_mtrx[n, ])
+    if(min_dist < max) res <- names(which.min(dist_mtrx[n, ])) 
+    else res <- NA
+    return(res)
+  }
+  
+  sapply(X = 1:nrow(dist_mtrx), FUN = function(x) get_best(x, dist_mtrx, max = max))
+}
+
+#test result
+fruits1 <- stringr::fruit
+fruits1
+
+fruits2 <- c("pears","apples", "melone", "per", "apple", "orange")
+get_match(fruits2, fruits1)
+
+#>[1] "pear"   "apple"  NA       "pear"   "apple"  "orange"
+```
+
+
+
 © 2020 GitHub, Inc.
